@@ -15,7 +15,7 @@ namespace Assets.Scripts
 
         private void Death()
         {
-            Debug.Log("Yes");
+            Debug.Log("Died");
         }
     }
 }

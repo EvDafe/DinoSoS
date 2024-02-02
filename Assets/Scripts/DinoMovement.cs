@@ -1,23 +1,54 @@
-using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DinoMovement : MonoBehaviour
 {
     [SerializeField] private DinoAnimationController _animationController;
+    [SerializeField] private DinoSpeedChanger _dinoSpeedChanger;
 
-    public float Speed;
+    [SerializeField] private UIButtonInfo _crouchButton;
 
-    private void Start() => 
-        _animationController.SetIsRunning(true);
+    private bool _isJumping = false;
 
-    private void FixedUpdate()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
-
-        transform.position += Vector3.left * Speed * Time.fixedDeltaTime;
+        _isJumping = false; 
+        _animationController.SetIsRunning(true);
     }
 
-    private void Jump() => 
+    private void FixedUpdate() =>
+        transform.position += Vector3.left * _dinoSpeedChanger.CurrentSpeed * Time.fixedDeltaTime;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            Jump();
+
+        else if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton((int)MouseButton.RightMouse) || Input.GetKey(KeyCode.S))
+            SetCrouchungFlag(true);
+
+        else if(!_crouchButton.isDown)
+            SetCrouchungFlag(false);
+
+        else
+            SetCrouchungFlag(true);
+    }
+
+    public void Jump()
+    {
+        if (!_isJumping)
         _animationController.Jump();
+    }
+
+    public void SetCrouchungFlag(bool isCrouching) =>
+        _animationController.SetIsCrouching(isCrouching);
+    
+    private void ChangeIsJumpingFlag(bool isJumping) =>
+        _isJumping = isJumping;
+
+    public void ChangeIsJumpingToFalse() =>
+        ChangeIsJumpingFlag(false);
+
+    public void ChangeIsJumpingToTrue() =>
+        ChangeIsJumpingFlag(true);
 }
