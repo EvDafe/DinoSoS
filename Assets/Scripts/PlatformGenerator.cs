@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlatformGenerator : MonoBehaviour
 {
-    //The code at this project is just shitpost to make it as fast as I able to do
+    //The code at this project is just shitpost to make it as fast as I able to do(am lazy)
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject[] _platforms;
     [SerializeField] private CactusSpawner _spawner;
@@ -26,6 +26,7 @@ public class PlatformGenerator : MonoBehaviour
                 _platforms[_firstPlatformIndex].transform.position.y,
                 _platforms[_firstPlatformIndex].transform.position.z);
 
+        _spawner.DeleteExtraObstacles(_platforms[GetNextPlatformIndex(_firstPlatformIndex)].transform.position.x - _platfromsOffset);
         GetFirstPlatform();
         _spawner.CheckToSpawn(_platforms[GetPrewPlatformIndex(_firstPlatformIndex, _platforms.Length)].transform.position, _platfromsOffset);
         Debug.Log(string.Format("Last plat pos is: {0}", _platforms[GetPrewPlatformIndex(_firstPlatformIndex, _platforms.Length)].transform.position));

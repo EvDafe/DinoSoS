@@ -8,14 +8,12 @@ namespace Assets.Scripts
         private void OnTriggerEnter(Collider other)
         {
             if(other.TryGetComponent(out Obstacle obstacle))
-            {
                 Death();
-            }
         }
 
         private void Death()
         {
-            Debug.Log("Died");
+            Time.timeScale = 0;
         }
     }
 }
