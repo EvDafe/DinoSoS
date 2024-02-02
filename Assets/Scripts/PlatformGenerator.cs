@@ -28,7 +28,6 @@ public class PlatformGenerator : MonoBehaviour
 
         GetFirstPlatform();
         _spawner.CheckToSpawn(_platforms[GetPrewPlatformIndex(_firstPlatformIndex, _platforms.Length)].transform.position, _platfromsOffset);
-        Debug.Log(string.Format("Last plat pos is: {0}", _platforms[GetPrewPlatformIndex(_firstPlatformIndex, _platforms.Length)].transform.position));
     }
 
     private void GetFirstPlatform()
