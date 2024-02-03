@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Services;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -7,13 +8,8 @@ namespace Assets.Scripts
     {
         private void OnTriggerEnter(Collider other)
         {
-            if(other.TryGetComponent(out Obstacle obstacle))
-                Death();
-        }
-
-        private void Death()
-        {
-            Time.timeScale = 0;
+            if (other.TryGetComponent(out Obstacle obstacle))
+                AllServices.Container.GetSingleton<GameStateTransmiter>().OnDinoDied();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Scripts.Services;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,18 +10,30 @@ public class DinoMovement : MonoBehaviour
     [SerializeField] private UIButtonInfo _crouchButton;
 
     private bool _isJumping = false;
+    private bool _isRunning = false;
 
     private void Start()
     {
-        _isJumping = false; 
+        AllServices.Container.GetSingleton<GameStateTransmiter>().StartGame.AddListener(StartRunning);
+        AllServices.Container.GetSingleton<GameStateTransmiter>().Died.AddListener(() => Destroy(this));
+    }
+
+    private void StartRunning()
+    {
+        _isJumping = false;
+        _isRunning = true;
         _animationController.SetIsRunning(true);
     }
 
-    private void FixedUpdate() =>
-        transform.position += Vector3.left * _dinoSpeedChanger.CurrentSpeed * Time.fixedDeltaTime;
+    private void FixedUpdate()
+    {
+        if (_isRunning) 
+            transform.position += Vector3.left * _dinoSpeedChanger.CurrentSpeed * Time.fixedDeltaTime;
+    }
 
     private void Update()
     {
+        if (_isRunning == false) return;
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             Jump();
 

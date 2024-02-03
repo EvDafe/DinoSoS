@@ -15,7 +15,7 @@ namespace Scripts.Skins
 
         private void Start()
         {
-            _dataSource = AllServices.Container.Single<DataSource>();
+            _dataSource = AllServices.Container.GetSingleton<DataSource>();
             _view.SetSkin(_datas[_dataSource.PlayerProgress.LastSkinIndex]);
         }
 

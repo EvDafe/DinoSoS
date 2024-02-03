@@ -16,7 +16,7 @@ namespace Scripts.Infrastructure
         private IEnumerator LoadProgress()
         {
             var dataSource = new DataSource();
-            AllServices.Container.RigisterSingle(dataSource);
+            AllServices.Container.RegisterSingleton(dataSource);
             yield return dataSource.Load();
         }
     }
