@@ -8,6 +8,7 @@ namespace Scripts.Saves
     {
         public int LastSkinIndex = 0;
         public int Money = 10;
+        public int BestScore = 0;
         public List<int> UnlockedSkins = new() { 0 };
     }
 }
