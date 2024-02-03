@@ -1,23 +1,25 @@
 ﻿using Scripts.Saves;
 using Scripts.Services;
-using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Infrastructure
 {
     public class Bootstrapper : MonoBehaviour, ICoroutineRunner
     {
+        [SerializeField] private PreviewSpawner _previewSpawner;
+
         private void Awake()
         {
             DontDestroyOnLoad(this);
-            StartCoroutine(nameof(LoadProgress));
+            LoadProgress();
         }
 
-        private IEnumerator LoadProgress()
+        private void LoadProgress()
         {
             var dataSource = new DataSource();
-            AllServices.Container.RegisterSingleton(dataSource);
-            yield return dataSource.Load();
+            AllServices.Container.RegisterSingleton<DataSource>(dataSource);
+            AllServices.Container.RegisterSingleton<PreviewSpawner>(_previewSpawner);
+            dataSource.Load();
         }
     }
 }

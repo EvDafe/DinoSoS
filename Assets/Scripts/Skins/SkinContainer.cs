@@ -13,6 +13,8 @@ namespace Scripts.Skins
         private DataSource _dataSource;
         private List<int> UnlockedSkins => _dataSource.PlayerProgress.UnlockedSkins;
 
+        public IReadOnlyCollection<SkinData> Datas => _datas;
+
         private void Start()
         {
             _dataSource = AllServices.Container.GetSingleton<DataSource>();

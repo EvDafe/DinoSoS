@@ -7,7 +7,7 @@ namespace Scripts.Saves
     public class PlayerProgress
     {
         public int LastSkinIndex = 0;
-
+        public int Money = 10;
         public List<int> UnlockedSkins = new() { 0 };
     }
 }

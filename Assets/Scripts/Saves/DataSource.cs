@@ -9,12 +9,11 @@ namespace Scripts.Saves
         public PlayerProgress PlayerProgress { get; set; }
         private const string DataKey = "PlayerData";
 
-        public IEnumerator Load()
+        public void Load()
         {
             PlayerProgress = JsonUtility.FromJson<PlayerProgress>(
                 PlayerPrefs.GetString(DataKey)) ?? new PlayerProgress();
             Debug.Log(PlayerPrefs.GetString(DataKey));
-            yield break;
         }
 
         public void Save()
