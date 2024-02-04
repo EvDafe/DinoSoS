@@ -8,7 +8,6 @@ namespace Scripts.Scores
 {
     public class ScoreSchetchik : MonoBehaviour, IService
     {
-
         [SerializeField] private float _scoreCoef;
         [SerializeField] private DinoView _dino;
         [SerializeField] private Transform _startPos;
@@ -31,12 +30,12 @@ namespace Scripts.Scores
             _transmiter.StartGame.AddListener(StartChet);
             _transmiter.Died.AddListener(SetBest);
         }
+
         public float GetCurrentScore()
         {
             if (_canSchet == false)
                 return 0;
             float distance = Vector3.Distance(_schetPosition.position, _dino.transform.position);
-
             return distance * _scoreCoef;
         }
 
@@ -47,8 +46,8 @@ namespace Scripts.Scores
                 _data.PlayerProgress.BestScore = Mathf.RoundToInt(GetCurrentScore());
                 _data.Save();
             }
+            _data.PlayerProgress.Money += (int)GetCurrentScore();
         }
-
 
         private void StartChet()
         {
