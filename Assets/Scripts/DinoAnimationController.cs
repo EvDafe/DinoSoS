@@ -11,10 +11,8 @@ public class DinoAnimationController : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-    private void Start()
-    {
+    private void Start() =>
         AllServices.Container.GetSingleton<GameStateTransmiter>().Died.AddListener(SetToDied);
-    }
 
     public void SetIsRunning(bool isRunning) =>
         _animator.SetBool(IsRunning, isRunning);

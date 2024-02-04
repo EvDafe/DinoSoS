@@ -32,14 +32,6 @@ namespace Scripts.Skins
             _dataSource.Save();
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-                Unlock(1);
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-                Unlock(2);
-        }
-
         public void SetSkin(int id)
         {
             if (UnlockedSkins.Contains(id))

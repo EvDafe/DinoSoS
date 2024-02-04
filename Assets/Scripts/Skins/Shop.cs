@@ -13,7 +13,7 @@ namespace Scripts.Skins
 
         private DataSource _data;
 
-        public UnityEvent BuyedSkin;
+        public UnityEvent BoughtSkin;
 
         private void Awake() => 
             _data = AllServices.Container.GetSingleton<DataSource>();
@@ -28,7 +28,7 @@ namespace Scripts.Skins
         {
             _data.PlayerProgress.Money -= GetSkinCost(id);
             _container.Unlock(id);
-            BuyedSkin?.Invoke();
+            BoughtSkin?.Invoke();
         }
 
         private int GetSkinCost(int id) =>

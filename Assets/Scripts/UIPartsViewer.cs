@@ -6,6 +6,7 @@ public class UIPartsViewer : MonoBehaviour
 {
     [SerializeField] private GameObject[] _objectsToHide;
     [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject _onGameUI;
     [SerializeField] private float _startHideDelay;
 
     public static UIPartsViewer Instance { get; private set; }
@@ -13,6 +14,8 @@ public class UIPartsViewer : MonoBehaviour
     private void Start()
     {
         Instance ??= this;
+        HideHints();
+        _onGameUI.SetActive(false);
         _menu.SetActive(true);
         AllServices.Container.GetSingleton<GameStateTransmiter>().StartGame.AddListener(() => _menu.SetActive(false));
         AllServices.Container.GetSingleton<GameStateTransmiter>().StartGame.AddListener(ShowHints);
@@ -22,6 +25,7 @@ public class UIPartsViewer : MonoBehaviour
     {
         foreach (var obj in _objectsToHide)
             obj.SetActive(false);
+        _onGameUI.SetActive(true);
     }
 
     public void ShowHints()
@@ -29,10 +33,5 @@ public class UIPartsViewer : MonoBehaviour
         foreach(var obj in _objectsToHide)
             obj.SetActive(true);
         Invoke(nameof(HideHints), _startHideDelay);
-    }
-
-    public void HideMenu()
-    {
-        _menu.SetActive(false);
     }
 }
