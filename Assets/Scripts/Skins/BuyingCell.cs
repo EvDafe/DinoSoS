@@ -21,12 +21,13 @@ namespace Scripts.Skins
 
         private void OnEnable()
         {
-            _dataSource = AllServices.Container.GetSingleton<DataSource>();
+            _dataSource ??= AllServices.Container.GetSingleton<DataSource>();
             UpdateView();
         }
 
         private void OnDisable() =>
             DisableButtons();
+
         public void Initialize(Shop shop, int id, SkinContainer skinContainer)
         {
             _shop = shop;
@@ -35,7 +36,7 @@ namespace Scripts.Skins
             _preview.texture = AllServices.Container.GetSingleton<PreviewSpawner>().SpawnPreview(_skinContainer.Datas.ElementAt(id));
             _setSkinButton.Initialize(id, skinContainer);
             _buyingButton.Initialize(id, shop, skinContainer);
-            _shop.BuyedSkin.AddListener(UpdateView);
+            _shop.BoughtSkin.AddListener(UpdateView);
         }
 
         private void DisableButtons()

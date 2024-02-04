@@ -1,5 +1,6 @@
 ﻿using Scripts.Services;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Scripts.Scores
@@ -16,8 +17,7 @@ namespace Scripts.Scores
 
         private void Start() => 
             _schetchik = AllServices.Container.GetSingleton<ScoreSchetchik>();
-
         private void Update() => 
-            _text.text = Mathf.RoundToInt(_schetchik.GetCurrentScore()).ToString();
+            _text.text = string.Format("{0:d5}", Mathf.RoundToInt(_schetchik.GetCurrentScore()));
     }
 }
