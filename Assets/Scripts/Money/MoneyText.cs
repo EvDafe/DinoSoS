@@ -18,7 +18,7 @@ namespace Scripts.Money
         private void Start() => 
             _dataSource = AllServices.Container.GetSingleton<DataSource>();
 
-        private void Update() => 
-            _text.text = _dataSource.PlayerProgress.Money.ToString();
+        private void Update() =>
+                        _text.text = string.Format("{0:d6}", Mathf.RoundToInt(_dataSource.PlayerProgress.Money));
     }
 }

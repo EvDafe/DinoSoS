@@ -17,6 +17,7 @@ namespace Scripts.Scores
         private Transform _schetPosition;
         private bool _canSchet;
         private DataSource _data;
+        private int _startMoney;
 
         public int Score => _score;
 
@@ -36,6 +37,7 @@ namespace Scripts.Scores
             if (_canSchet == false)
                 return 0;
             float distance = Vector3.Distance(_schetPosition.position, _dino.transform.position);
+            _data.PlayerProgress.Money = _startMoney + Mathf.RoundToInt(distance * _scoreCoef);
             return distance * _scoreCoef;
         }
 
@@ -44,15 +46,15 @@ namespace Scripts.Scores
             if (GetCurrentScore() > _data.PlayerProgress.BestScore)
             {
                 _data.PlayerProgress.BestScore = Mathf.RoundToInt(GetCurrentScore());
-                _data.Save();
             }
-            _data.PlayerProgress.Money += (int)GetCurrentScore();
+            _data.Save();
         }
 
         private void StartChet()
         {
             _schetPosition = Instantiate(_startPos, _dino.transform.position, Quaternion.identity);
             _canSchet = true;
+            _startMoney = _data.PlayerProgress.Money;
         }
     }
 }
