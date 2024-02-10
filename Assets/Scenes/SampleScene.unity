@@ -1426,8 +1426,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 140
+  m_fontSizeBase: 140
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3541,6 +3541,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4734699897983453119, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1773.899
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734699897983453119, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.183
+      objectReference: {fileID: 0}
     - target: {fileID: 7276859645529111108, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
       propertyPath: m_Name
       value: Shop
@@ -3550,12 +3558,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8097144638895239532, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097144638895239532, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097144638895239532, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097144638895239532, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
       propertyPath: m_SizeDelta.x
       value: 331.3105
       objectReference: {fileID: 0}
     - target: {fileID: 8097144638895239532, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 115.09
+      value: 114.089966
       objectReference: {fileID: 0}
     - target: {fileID: 8097144638895239532, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3563,7 +3583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8097144638895239532, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -82.341
+      value: -103
       objectReference: {fileID: 0}
     - target: {fileID: 8367511135067626262, guid: 6060d77b486cc49498cfaf59a663952c, type: 3}
       propertyPath: m_Pivot.x
