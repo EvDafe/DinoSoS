@@ -1,7 +1,6 @@
 ﻿using Scripts.Saves;
 using Scripts.Services;
 using Scripts.Skins;
-using System;
 using UnityEngine;
 
 namespace Scripts.Scores

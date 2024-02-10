@@ -1,4 +1,4 @@
-﻿
+﻿using Scripts.Money;
 using Scripts.Saves;
 using Scripts.Services;
 using System.Linq;
@@ -11,22 +11,22 @@ namespace Scripts.Skins
     {
         [SerializeField] private SkinContainer _container;
 
-        private DataSource _data;
+        private Wallet _wallet;
 
         public UnityEvent BoughtSkin;
 
         private void Awake() => 
-            _data = AllServices.Container.GetSingleton<DataSource>();
+            _wallet = AllServices.Container.GetSingleton<Wallet>();
 
         public void BuySkin(int id)
         {
-            if(_data.PlayerProgress.Money >= GetSkinCost(id))
+            if(_wallet.CanSpendMoney(GetSkinCost(id)))
                 Buy(id);
         }
 
         private void Buy(int id)
         {
-            _data.PlayerProgress.Money -= GetSkinCost(id);
+            _wallet.SpendMoney(GetSkinCost(id));
             _container.Unlock(id);
             BoughtSkin?.Invoke();
         }

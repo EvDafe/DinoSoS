@@ -10,15 +10,18 @@ namespace Scripts.Money
     {
         [SerializeField] private TMP_Text _text;
 
-        private DataSource _dataSource;
+        private Wallet _wallet;
 
         private void OnValidate() => 
             _text ??= GetComponent<TMP_Text>();
 
-        private void Start() => 
-            _dataSource = AllServices.Container.GetSingleton<DataSource>();
+        private void Start()
+        {
+            _wallet = AllServices.Container.GetSingleton<Wallet>();
+            _wallet.MoneyChanged.AddListener(UpdateText);
+        }
 
-        private void Update() => 
-            _text.text = _dataSource.PlayerProgress.Money.ToString();
+        private void UpdateText() => 
+            _text.text = _wallet.Money.ToString();
     }
 }
