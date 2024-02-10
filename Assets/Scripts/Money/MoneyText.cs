@@ -15,13 +15,14 @@ namespace Scripts.Money
         private void OnValidate() => 
             _text ??= GetComponent<TMP_Text>();
 
-        private void Start()
+        private void OnEnable()
         {
             _wallet = AllServices.Container.GetSingleton<Wallet>();
-            _wallet.MoneyChanged.AddListener(UpdateText);
+            _wallet.MoneyChanged += UpdateText;
+            UpdateText();
         }
 
-        private void UpdateText() => 
-            _text.text = _wallet.Money.ToString();
+        private void UpdateText() =>
+            _text.text = string.Format("{0:d6}", Mathf.RoundToInt(_wallet.Money));
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Scripts.Saves;
 using Scripts.Services;
-using UnityEngine.Events;
+using System;
 
 namespace Scripts.Money
 {
@@ -8,7 +8,7 @@ namespace Scripts.Money
     {
         private DataSource _dataSource;
 
-        public UnityEvent MoneyChanged;
+        public Action MoneyChanged;
         public int Money => _dataSource.PlayerProgress.Money;
 
         public Wallet(DataSource dataSource) => 

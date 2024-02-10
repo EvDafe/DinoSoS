@@ -12,7 +12,7 @@ namespace Scripts.Skins
         [SerializeField] private Shop _shop;
         [SerializeField] private SkinContainer _skinContainer;
 
-        private void Start()
+        private void Awake()
         {
             FillShop();
         }
