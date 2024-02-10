@@ -18,6 +18,6 @@ namespace Scripts.Scores
         private void Start() => 
             _schetchik = AllServices.Container.GetSingleton<ScoreSchetchik>();
         private void Update() => 
-            _text.text = string.Format("{0:d5}", Mathf.RoundToInt(_schetchik.GetCurrentScore()));
+            _text.text = string.Format("{0:d6}", Mathf.RoundToInt(_schetchik.GetCurrentScore()));
     }
 }

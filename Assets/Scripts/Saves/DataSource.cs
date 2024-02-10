@@ -17,7 +17,6 @@ namespace Scripts.Saves
 
         public void Save()
         {
-
             PlayerPrefs.SetString(DataKey, JsonUtility.ToJson(PlayerProgress));
             PlayerPrefs.Save();
         }
