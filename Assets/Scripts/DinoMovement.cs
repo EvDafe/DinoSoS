@@ -2,7 +2,7 @@ using Scripts.Services;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class DinoMovement : MonoBehaviour
+public class DinoMovement : MonoBehaviour, IService
 {
     [SerializeField] private DinoAnimationController _animationController;
     [SerializeField] private DinoSpeedChanger _dinoSpeedChanger;
@@ -11,11 +11,13 @@ public class DinoMovement : MonoBehaviour
 
     private bool _isJumping = false;
     private bool _isRunning = false;
+    private bool _isCrouching = false;
 
     private void Start()
     {
         AllServices.Container.GetSingleton<GameStateTransmiter>().StartGame.AddListener(StartRunning);
         AllServices.Container.GetSingleton<GameStateTransmiter>().Died.AddListener(() => Destroy(this));
+        AllServices.Container.RegisterSingleton(this);
     }
 
     private void StartRunning()
@@ -50,18 +52,24 @@ public class DinoMovement : MonoBehaviour
     public void Jump()
     {
         if (!_isJumping)
-        _animationController.Jump();
+            _animationController.Jump();
     }
 
-    public void SetCrouchungFlag(bool isCrouching) =>
+    public void SetCrouchungFlag(bool isCrouching)
+    {
         _animationController.SetIsCrouching(isCrouching);
-    
-    private void ChangeIsJumpingFlag(bool isJumping) =>
-        _isJumping = isJumping;
+        AllServices.Container.GetSingleton<FalseSneakButton>().ChangeButtonState(isCrouching);
+    }
 
-    public void ChangeIsJumpingToFalse() =>
+    private void ChangeIsJumpingFlag(bool isJumping)
+    {
+        _isJumping = isJumping;
+        AllServices.Container.GetSingleton<FalseJumpButton>().ChangeButtonState(isJumping);
+    }
+
+    public void SetIsJumpingToFalse() =>
         ChangeIsJumpingFlag(false);
 
-    public void ChangeIsJumpingToTrue() =>
+    public void SetIsJumpingToTrue() =>
         ChangeIsJumpingFlag(true);
 }

@@ -12,10 +12,8 @@ namespace Scripts.Skins
         [SerializeField] private Shop _shop;
         [SerializeField] private SkinContainer _skinContainer;
 
-        private void Awake()
-        {
+        private void Awake() =>
             FillShop();
-        }
 
         private void FillShop()
         {
