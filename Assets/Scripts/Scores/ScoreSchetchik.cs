@@ -1,7 +1,7 @@
-﻿using Scripts.Saves;
+﻿using Scripts.Money;
+using Scripts.Saves;
 using Scripts.Services;
 using Scripts.Skins;
-using System;
 using UnityEngine;
 
 namespace Scripts.Scores
@@ -17,6 +17,7 @@ namespace Scripts.Scores
         private Transform _schetPosition;
         private bool _canSchet;
         private DataSource _data;
+        private Wallet _wallet;
         private int _startMoney;
 
         public int Score => _score;
@@ -28,6 +29,7 @@ namespace Scripts.Scores
         {
             _transmiter = AllServices.Container.GetSingleton<GameStateTransmiter>();
             _data = AllServices.Container.GetSingleton<DataSource>();
+            _wallet = AllServices.Container.GetSingleton<Wallet>();
             _transmiter.StartGame.AddListener(StartChet);
             _transmiter.Died.AddListener(SetBest);
         }
@@ -38,6 +40,7 @@ namespace Scripts.Scores
                 return 0;
             float distance = Vector3.Distance(_schetPosition.position, _dino.transform.position);
             _data.PlayerProgress.Money = _startMoney + Mathf.RoundToInt(distance * _scoreCoef);
+            _wallet.AddMoney(0);
             return distance * _scoreCoef;
         }
 

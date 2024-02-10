@@ -1,4 +1,5 @@
-﻿using Scripts.Saves;
+﻿using Scripts.Money;
+using Scripts.Saves;
 using Scripts.Services;
 using UnityEngine;
 
@@ -17,7 +18,9 @@ namespace Scripts.Infrastructure
         private void LoadProgress()
         {
             var dataSource = new DataSource();
+            var wallet = new Wallet(dataSource);
             AllServices.Container.RegisterSingleton<DataSource>(dataSource);
+            AllServices.Container.RegisterSingleton<Wallet>(wallet);
             AllServices.Container.RegisterSingleton<PreviewSpawner>(_previewSpawner);
             dataSource.Load();
         }
