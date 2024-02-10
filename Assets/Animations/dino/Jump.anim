@@ -3735,7 +3735,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: ChangeIsJumpingToTrue
+    functionName: SetIsJumpingToTrue
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
