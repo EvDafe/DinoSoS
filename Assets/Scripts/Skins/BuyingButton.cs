@@ -35,7 +35,6 @@ namespace Scripts.Skins
 
         private void BuySkin()
         {
-            Debug.Log("BOUGHT");
             bool bought = _shop.BuySkin(_id);
             AllServices.Container.GetSingleton<DinoImage>().MakeDinoEmot(bought);
         }
