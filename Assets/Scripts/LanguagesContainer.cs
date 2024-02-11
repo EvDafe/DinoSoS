@@ -46,6 +46,15 @@ public class LanguagesContainer : MonoBehaviour, IService
         LanguageChanged?.Invoke();
     }
 
+    public void SetToRussian() =>
+        ChangeLanguage(Languages.Russian);
+
+    public void SetToEnglish() =>
+        ChangeLanguage(Languages.English);
+
+    public void SetToTurkish() =>
+        ChangeLanguage(Languages.Turkish);
+
     private void FillWordsDictionary()
     {
         WordsDictionary = new Dictionary<Languages, Dictionary<TextKeys, string>>()
