@@ -48,8 +48,6 @@ namespace Scripts.Skins
 
         private void UpdateView()
         {
-            Debug.Log(_dataSource == null);
-
             if (_dataSource.PlayerProgress.UnlockedSkins.Contains(_id))
                 _setSkinButton.gameObject.SetActive(true);
             else

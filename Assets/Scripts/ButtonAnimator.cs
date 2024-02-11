@@ -13,20 +13,12 @@ public class ButtonAnimator : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void UpButton() =>
         _button.SetBool(_isPressed, true);
 
-
     public void DownButton() =>
         _button.SetBool(_isPressed, false);
 
-    public void OnPointerEnter(PointerEventData pointerEventData)
-    {
+    public void OnPointerEnter(PointerEventData pointerEventData) =>
         UpButton();
-        Debug.Log("Enter");
-    }
 
-    //Detect when Cursor leaves the GameObject
-    public void OnPointerExit(PointerEventData pointerEventData)
-    {
+    public void OnPointerExit(PointerEventData pointerEventData) =>
         DownButton();
-        Debug.Log("Exit");
-    }
 }

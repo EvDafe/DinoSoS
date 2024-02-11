@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BootStrapScene.unity
     guid: b7de8ff6fee4cf1498761896e00152db
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hz.unity
     guid: 7d7dbc007199a3846b935d111ead47a1
   m_configObjects: {}

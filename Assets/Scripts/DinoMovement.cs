@@ -11,7 +11,6 @@ public class DinoMovement : MonoBehaviour, IService
 
     private bool _isJumping = false;
     private bool _isRunning = false;
-    private bool _isCrouching = false;
 
     private void Start()
     {

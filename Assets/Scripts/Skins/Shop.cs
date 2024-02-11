@@ -18,10 +18,14 @@ namespace Scripts.Skins
         private void Awake() => 
             _wallet = AllServices.Container.GetSingleton<Wallet>();
 
-        public void BuySkin(int id)
+        public bool BuySkin(int id)
         {
-            if(_wallet.CanSpendMoney(GetSkinCost(id)))
+            if (_wallet.CanSpendMoney(GetSkinCost(id)))
+            {
                 Buy(id);
+                return true;
+            }
+            return false;
         }
 
         private void Buy(int id)

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using Scripts.Services;
+using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +13,7 @@ namespace Scripts.Skins
     {
         [SerializeField] private Button _button;
         [SerializeField] private TMP_Text _text;
+
 
         private int _id;
         private Shop _shop;
@@ -30,7 +33,11 @@ namespace Scripts.Skins
             _text.text = _skinContainer.Datas.ElementAt(_id).Cost.ToString();
         }
 
-        private void BuySkin() =>
-            _shop.BuySkin(_id);
+        private void BuySkin()
+        {
+            Debug.Log("BOUGHT");
+            bool bought = _shop.BuySkin(_id);
+            AllServices.Container.GetSingleton<DinoImage>().MakeDinoEmot(bought);
+        }
     }
 }

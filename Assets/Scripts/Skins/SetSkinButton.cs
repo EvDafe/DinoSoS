@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Services;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +25,10 @@ namespace Scripts.Skins
         private void Start() => 
             _button.onClick.AddListener(SetSkin);
 
-        private void SetSkin() => 
+        private void SetSkin()
+        {
             _skinContainer.SetSkin(_id);
+            AllServices.Container.GetSingleton<DinoImage>().MakeDinoCake();
+        }
     }
 }
