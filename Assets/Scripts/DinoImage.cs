@@ -18,7 +18,8 @@ public class DinoImage : MonoBehaviour, IService
         _dino ??= GetComponent<Image>();
     }
 
-
+    private void OnEnable() =>
+        _dino.sprite = _defaultDino;
 
     public void MakeDinoEmot(bool happy)
     {
