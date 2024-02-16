@@ -1,6 +1,7 @@
 ﻿using Scripts.Money;
 using Scripts.Saves;
 using Scripts.Services;
+using UnityEditor;
 using UnityEngine;
 
 namespace Scripts.Infrastructure
@@ -9,9 +10,20 @@ namespace Scripts.Infrastructure
     {
         [SerializeField] private PreviewSpawner _previewSpawner;
 
+        public static Bootstrapper Instance { get; private set; }
+        public static int LastSongID { get; set; } = -1;
+
         private void Awake()
         {
-            DontDestroyOnLoad(this);
+            if (Instance == null)
+            {
+                DontDestroyOnLoad(this);
+                Instance = this;
+            }
+            else
+            {
+                if (Instance != this) Destroy(gameObject);
+            }
             LoadProgress();
         }
 

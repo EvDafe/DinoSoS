@@ -23,7 +23,6 @@ public class DinoImage : MonoBehaviour, IService
 
     public void MakeDinoEmot(bool happy)
     {
-        Debug.Log("MAKE DINO EMOTE");
         if (happy)
             StartCoroutine(nameof(MakeDinoHappy));
         else

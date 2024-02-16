@@ -36,6 +36,10 @@ namespace Scripts.Skins
         private void BuySkin()
         {
             bool bought = _shop.BuySkin(_id);
+            if (bought)
+                AllServices.Container.GetSingleton<Sounds>().PlayBoughtSound();
+            else
+                AllServices.Container.GetSingleton<Sounds>().PlayNotBoughtSound();
             AllServices.Container.GetSingleton<DinoImage>().MakeDinoEmot(bought);
         }
     }

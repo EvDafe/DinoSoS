@@ -51,7 +51,10 @@ public class DinoMovement : MonoBehaviour, IService
     public void Jump()
     {
         if (!_isJumping)
+        {
             _animationController.Jump();
+            AllServices.Container.GetSingleton<Sounds>().PlayJumpSound();
+        }
     }
 
     public void SetCrouchungFlag(bool isCrouching)
