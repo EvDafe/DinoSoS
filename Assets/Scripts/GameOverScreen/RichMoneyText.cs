@@ -1,4 +1,5 @@
-﻿using Scripts.Scores;
+﻿using Scripts.Money;
+using Scripts.Scores;
 using Scripts.Services;
 using System;
 using TMPro;
@@ -11,6 +12,7 @@ namespace Scripts.GameOverScreen
     public class RichMoneyText : MonoBehaviour
     {
         [SerializeField] private TMP_Text _text;
+        [SerializeField] private MoneyText _moneyText;
 
         private ScoreSchetchik _schetchik;
 
@@ -28,6 +30,7 @@ namespace Scripts.GameOverScreen
         {
             if (_text != null && _schetchik != null)
                 _text.text = $"+{Mathf.RoundToInt(_schetchik.GetCurrentScore()) * 2}";
+            _moneyText.UpdateText();
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Scripts.Scores
         {
             _data = AllServices.Container.GetSingleton<DataSource>();
             base.Start();
+            AllServices.Container.GetSingleton<ScoreSchetchik>().BestUpdated += UpdateText;
         }
 
         protected override void UpdateText() =>

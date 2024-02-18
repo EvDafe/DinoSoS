@@ -2,6 +2,7 @@
 using Scripts.Saves;
 using Scripts.Services;
 using Scripts.Skins;
+using System;
 using UnityEngine;
 
 namespace Scripts.Scores
@@ -21,6 +22,7 @@ namespace Scripts.Scores
         private int _startMoney;
 
         public int Score => _score;
+        public Action BestUpdated;
 
         private void Awake() => 
             AllServices.Container.RegisterSingleton<ScoreSchetchik>(this);
@@ -46,6 +48,7 @@ namespace Scripts.Scores
 
         private void SetBest()
         {
+            BestUpdated?.Invoke();
             if (GetCurrentScore() > _data.PlayerProgress.BestScore)
             {
                 _data.PlayerProgress.BestScore = Mathf.RoundToInt(GetCurrentScore());

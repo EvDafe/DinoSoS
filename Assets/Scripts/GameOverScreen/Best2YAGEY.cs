@@ -1,4 +1,5 @@
 using Scripts.Saves;
+using Scripts.Scores;
 using Scripts.Services;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class Best2YAGEY : LocalizedText, IService
     {
         _data = AllServices.Container.GetSingleton<DataSource>();
         base.Start();
+        AllServices.Container.GetSingleton<ScoreSchetchik>().BestUpdated += UpdateText;
     }
 
     protected override void UpdateText() =>

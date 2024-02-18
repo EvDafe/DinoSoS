@@ -11,6 +11,7 @@ namespace Scripts.Money
         [SerializeField] private TMP_Text _text;
 
         private Wallet _wallet;
+        private DataSource _dataSource;
 
         private void OnValidate() => 
             _text ??= GetComponent<TMP_Text>();
@@ -18,11 +19,19 @@ namespace Scripts.Money
         private void OnEnable()
         {
             _wallet = AllServices.Container.GetSingleton<Wallet>();
+            _dataSource = AllServices.Container.GetSingleton<DataSource>();
             _wallet.MoneyChanged += UpdateText;
             UpdateText();
         }
 
-        private void UpdateText() =>
-            _text.text = string.Format("{0:d6}", Mathf.RoundToInt(_wallet.Money));
+        private void OnDisable() => 
+            _wallet.MoneyChanged -= UpdateText;
+
+        public void UpdateText()
+        {
+            Debug.Log("Ti LOx");
+            _text.text = string.Format("{0:d6}", _dataSource.PlayerProgress.Money);
+            Debug.Log("Ti LOx x2");
+        }
     }
 }
