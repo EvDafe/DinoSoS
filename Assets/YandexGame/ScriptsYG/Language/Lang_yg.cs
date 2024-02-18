@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Services;
+using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -128,15 +129,24 @@ namespace YG
             {
                 case "ru":
                     if (infoYG.languages.ru)
+                    {
                         _lang = sendLang;
+                        AllServices.Container.GetSingleton<LanguagesContainer>().SetToRussian();
+                    }
                     break;
                 case "en":
                     if (infoYG.languages.en)
+                    {
                         _lang = sendLang;
+                        AllServices.Container.GetSingleton<LanguagesContainer>().SetToEnglish();
+                    }
                     break;
                 case "tr":
                     if (infoYG.languages.tr)
+                    {
                         _lang = sendLang;
+                        AllServices.Container.GetSingleton<LanguagesContainer>().SetToTurkish();
+                    }
                     else _lang = "ru";
                     break;
                 case "az":
