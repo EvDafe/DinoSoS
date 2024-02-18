@@ -63,7 +63,7 @@ public class LanguagesContainer : MonoBehaviour, IService
             {
                 [TextKeys.yourScore] = "СЧЁТ: ",
                 [TextKeys.best] = "РЕКОРД: ",
-                [TextKeys.gameOver] = "ИГРА ОКОНЧЕНА",
+                [TextKeys.gameOver] = "ИГРАОКОНЧЕНА",
                 [TextKeys.language] = "Язык:",
                 [TextKeys.shop] = "Магазин",
                 [TextKeys.back] = "Назад",
