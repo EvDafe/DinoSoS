@@ -10,6 +10,8 @@ public class GameStateTransmiter : MonoBehaviour, IService
     public UnityEvent StartGame;
     public UnityEvent Died;
 
+    private bool _alive = true;
+
     private void Awake() =>
         AllServices.Container.RegisterSingleton(this);
 
@@ -23,7 +25,12 @@ public class GameStateTransmiter : MonoBehaviour, IService
 
     public void OnDinoDied()
     {
-        Died.Invoke();
+        if (_alive)
+        {
+            _alive = false;
+            Died.Invoke();
+            AllServices.Container.GetSingleton<Sounds>().PlayDieSound();
+        }
     }
 
 }

@@ -28,6 +28,7 @@ namespace Scripts.Skins
         private void SetSkin()
         {
             _skinContainer.SetSkin(_id);
+            AllServices.Container.GetSingleton<Sounds>().PlaySelectedSound();
             AllServices.Container.GetSingleton<DinoImage>().MakeDinoCake();
         }
     }
