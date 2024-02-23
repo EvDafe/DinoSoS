@@ -22,7 +22,10 @@ namespace Scripts.Money
             UpdateText();
         }
 
-        private void UpdateText() =>
+        public void UpdateText()
+        {
             _text.text = string.Format("{0:d6}", Mathf.RoundToInt(_wallet.Money));
+            Debug.Log("Changed money: " + _wallet.Money);
+        }
     }
 }

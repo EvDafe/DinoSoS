@@ -31,9 +31,9 @@ namespace Scripts.Infrastructure
         {
             var dataSource = new DataSource();
             var wallet = new Wallet(dataSource);
-            AllServices.Container.RegisterSingleton<DataSource>(dataSource);
-            AllServices.Container.RegisterSingleton<Wallet>(wallet);
-            AllServices.Container.RegisterSingleton<PreviewSpawner>(_previewSpawner);
+            AllServices.Container.RegisterSingleton(dataSource);
+            AllServices.Container.RegisterSingleton(wallet);
+            AllServices.Container.RegisterSingleton(_previewSpawner);
             dataSource.Load();
         }
     }

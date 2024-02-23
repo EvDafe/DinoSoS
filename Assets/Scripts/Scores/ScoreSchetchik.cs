@@ -39,7 +39,8 @@ namespace Scripts.Scores
             if (_canSchet == false)
                 return 0;
             float distance = Vector3.Distance(_schetPosition.position, _dino.transform.position);
-            _data.PlayerProgress.Money = _startMoney + Mathf.RoundToInt(distance * _scoreCoef);
+            if (_transmiter.Alive)
+                _data.PlayerProgress.Money = _startMoney + Mathf.RoundToInt(distance * _scoreCoef); 
             _wallet.AddMoney(0);
             return distance * _scoreCoef;
         }

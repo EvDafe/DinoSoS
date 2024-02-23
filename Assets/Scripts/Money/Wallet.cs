@@ -11,7 +11,7 @@ namespace Scripts.Money
         public Action MoneyChanged;
         public int Money => _dataSource.PlayerProgress.Money;
 
-        public Wallet(DataSource dataSource) => 
+        public Wallet(DataSource dataSource) =>
             _dataSource = dataSource;
 
         public bool CanSpendMoney(int money) =>
