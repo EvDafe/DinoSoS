@@ -3,6 +3,7 @@ using Scripts.Saves;
 using Scripts.Services;
 using Scripts.Skins;
 using UnityEngine;
+using YG;
 
 namespace Scripts.Scores
 {
@@ -50,6 +51,7 @@ namespace Scripts.Scores
             if (GetCurrentScore() > _data.PlayerProgress.BestScore)
             {
                 _data.PlayerProgress.BestScore = Mathf.RoundToInt(GetCurrentScore());
+                YandexGame.NewLeaderboardScores("Score", _data.PlayerProgress.BestScore);
             }
             _data.Save();
         }

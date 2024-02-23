@@ -69,7 +69,7 @@ public class LanguagesContainer : MonoBehaviour, IService
                 [TextKeys.back] = "Назад",
                 [TextKeys.set] = "Выбрать",
                 [TextKeys.buy] = "Купить",
-                [TextKeys.dino] = "ДИНОЗАВР 3Д",
+                [TextKeys.dino] = "Динозавр 3Д",
                 [TextKeys.pressToJump] = "Нажми, чтобы\nпрыгнуть",
                 [TextKeys.pressToCrouch] = "Нажми, чтобы\nпригнуться",
 
@@ -85,7 +85,7 @@ public class LanguagesContainer : MonoBehaviour, IService
                 [TextKeys.back] = "Back",
                 [TextKeys.set] = "Set",
                 [TextKeys.buy] = "Buy",
-                [TextKeys.dino] = "DINOSAUR 3D",
+                [TextKeys.dino] = "Dinosaur 3D",
                 [TextKeys.pressToJump] = "Press to\njump",
                 [TextKeys.pressToCrouch] = "Press to\nduck"
             },
@@ -100,7 +100,7 @@ public class LanguagesContainer : MonoBehaviour, IService
                 [TextKeys.back] = "Geri",
                 [TextKeys.set] = "Seçmek",
                 [TextKeys.buy] = "Satın almak",
-                [TextKeys.dino] = "DİNOZOR 3D",
+                [TextKeys.dino] = "Dinozor 3D",
                 [TextKeys.pressToJump] = "Atlamak için\ntıklayın",
                 [TextKeys.pressToCrouch] = "Eğilmek için\nbasın"
 
