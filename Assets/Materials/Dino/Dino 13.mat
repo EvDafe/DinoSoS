@@ -50,7 +50,11 @@ Material:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: a7e287333c5c22c4b9f5b4fe550ca3e3, type: 3}
         m_Scale: {x: 1, y: 1}
+<<<<<<< HEAD
         m_Offset: {x: 0.20000002, y: 0}
+=======
+        m_Offset: {x: 6.0800443, y: 0}
+>>>>>>> parent of fe349ab (+fixex)
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: a7e287333c5c22c4b9f5b4fe550ca3e3, type: 3}
         m_Scale: {x: 1, y: 1}
