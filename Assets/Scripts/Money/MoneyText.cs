@@ -25,7 +25,6 @@ namespace Scripts.Money
         public void UpdateText()
         {
             _text.text = string.Format("{0:d6}", Mathf.RoundToInt(_wallet.Money));
-            Debug.Log("Changed money: " + _wallet.Money);
         }
     }
 }
