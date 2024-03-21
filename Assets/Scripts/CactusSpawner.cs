@@ -36,8 +36,8 @@ public class CactusSpawner : MonoBehaviour
     {
         GameObject prefabToSpawn;
         int chance = Random.Range(1, 12);
-        if (chance <= 6) prefabToSpawn = _soloSpike;
-        else if (chance <= 9) prefabToSpawn = _duoSpikes;
+        if (chance <= 4) prefabToSpawn = _soloSpike;
+        else if (chance <= 8) prefabToSpawn = _duoSpikes;
         else if (chance < 11) prefabToSpawn = _trioSpikes;
         else prefabToSpawn = _flyingDummy;
         return Instantiate(prefabToSpawn, new Vector3(xAxis, prefabToSpawn.transform.position.y, prefabToSpawn.transform.position.z), Quaternion.identity);
